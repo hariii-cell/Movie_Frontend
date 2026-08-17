@@ -1,0 +1,376 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1f2937;
+  background: linear-gradient(135deg, #dfe3e8 0%, #c7ccd1 20%, #b0b7bf 45%, #d4af37 100%);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 30%),
+    linear-gradient(135deg, #dfe3e8 0%, #c7ccd1 18%, #b5bac3 42%, #d7c17d 100%);
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Auth & App Shells */
+.auth-shell,
+.app-shell {
+  @apply min-h-screen flex justify-center items-center px-5 py-10;
+}
+
+.auth-card,
+.app-card {
+  @apply w-full max-w-6xl bg-white border border-gray-400 rounded-3xl shadow-2xl backdrop-blur-lg opacity-90;
+}
+
+.app-card {
+  @apply p-7;
+}
+
+.auth-card {
+  @apply max-w-md p-8 text-center;
+}
+
+/* Typography */
+.eyebrow {
+  @apply uppercase text-xs tracking-widest text-amber-900 font-bold mb-2;
+}
+
+h1 {
+  @apply m-0 text-gray-900 text-2xl font-bold;
+}
+
+h2 {
+  @apply text-lg font-bold text-gray-900;
+}
+
+/* Forms & Inputs */
+.auth-form,
+.entry-form {
+  @apply grid gap-3 mt-6;
+}
+
+.entry-form {
+  @apply grid-cols-[2fr_1fr_1fr_auto] mb-6;
+}
+
+.search-input {
+  @apply w-full bg-white border border-gray-400 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition;
+}
+
+/* Buttons */
+.auth-form button,
+.entry-form button,
+.logout-btn {
+  @apply px-4 py-2 rounded-xl font-bold text-gray-900 bg-gradient-to-r from-yellow-600 to-yellow-300 border-none shadow-md hover:shadow-lg transition;
+}
+
+.tab,
+.secondary,
+.danger,
+.switch-link {
+  @apply px-4 py-2 rounded-xl border transition;
+}
+
+.tab {
+  @apply bg-gray-200 text-gray-900 hover:bg-yellow-100 border-gray-300;
+}
+
+.tab.active {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-400 text-white font-bold border-yellow-600;
+}
+
+.secondary {
+  @apply bg-gray-300 text-gray-900 hover:bg-gray-400 border-gray-400;
+}
+
+.danger {
+  @apply bg-red-800 text-white hover:bg-red-900 border-red-900;
+}
+
+.logout-btn {
+  @apply bg-gradient-to-r from-yellow-600 to-yellow-300 text-gray-900;
+}
+
+.switch-link {
+  @apply w-full bg-transparent text-yellow-700 font-semibold hover:text-yellow-900 border-0;
+}
+
+/* Layout Flexbox */
+.tab-row,
+.user-header,
+.toolbar,
+.filter-row,
+.media-main,
+.rating-block,
+.actions {
+  @apply flex items-center;
+}
+
+/* Topbar */
+.topbar {
+  @apply flex justify-between items-center gap-4 mb-6 flex-wrap;
+}
+
+.brand-block {
+  @apply flex-1 min-w-[180px];
+}
+
+.top-nav {
+  @apply flex items-center gap-2 bg-gray-100 border border-gray-300 rounded-full p-1.5 shadow-inner;
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-full text-sm font-semibold text-gray-700 bg-transparent border-none transition;
+}
+
+.nav-link.active {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-300 text-gray-900 shadow-sm;
+}
+
+.user-header {
+  @apply gap-3 text-gray-700 font-semibold;
+}
+
+.auth-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-900/25 backdrop-blur-sm px-5;
+}
+
+.auth-dialog {
+  @apply w-full max-w-md;
+}
+
+/* Profile Panel */
+.profile-panel {
+  @apply flex justify-between items-center gap-5 bg-white border border-yellow-600 px-5 py-4 rounded-2xl mb-6;
+}
+
+.profile-label {
+  @apply text-xs font-bold uppercase tracking-wider text-yellow-900 m-0 mb-1;
+}
+
+.profile-stats {
+  @apply flex gap-6 flex-wrap;
+}
+
+.profile-stats > div {
+  @apply flex flex-col gap-1.5;
+}
+
+.profile-stats span {
+  @apply text-xs font-semibold uppercase tracking-wider text-gray-600;
+}
+
+.profile-stats strong {
+  @apply text-xl font-bold text-gray-900;
+}
+
+/* Toolbar & Filters */
+.toolbar {
+  @apply flex flex-col gap-4 mb-6;
+}
+
+.tab-row {
+  @apply gap-2 border-b border-gray-300 flex-wrap pb-2;
+}
+
+.filter-row {
+  @apply gap-3 flex-wrap;
+}
+
+.filter-row input,
+.filter-row select {
+  @apply flex-1 min-w-[150px];
+}
+
+/* Autofixer */
+.autofixer {
+  @apply relative w-full;
+}
+
+.autofixer-input {
+  @apply w-full px-4 py-3 bg-white border border-gray-400 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition;
+}
+
+.autofixer-suggestions {
+  @apply absolute top-full left-0 right-0 mt-1 bg-white border border-yellow-400 rounded-xl shadow-lg z-50 max-h-80 overflow-y-auto;
+}
+
+.autofixer-item {
+  @apply px-4 py-2 hover:bg-yellow-50 border-b border-yellow-200 flex items-center justify-between gap-3 transition;
+}
+
+.fix-message {
+  @apply text-xs font-semibold text-gray-600 uppercase tracking-wide;
+}
+
+.fix-text {
+  @apply flex-1 text-sm text-gray-900 font-medium;
+}
+
+.fix-button {
+  @apply px-3 py-1 rounded-lg bg-gradient-to-r from-green-500 to-green-400 text-white text-xs font-bold hover:shadow-md transition;
+}
+
+/* Media List */
+.media-list {
+  @apply list-none p-0 m-0 space-y-4;
+}
+
+.media-item {
+  @apply bg-white border border-gray-300 rounded-xl p-4 grid gap-3;
+}
+
+.media-main {
+  @apply justify-between gap-4;
+}
+
+.media-main > div:first-child {
+  @apply flex-1;
+}
+
+.media-title {
+  @apply text-lg font-bold text-gray-900 m-0 mb-1;
+}
+
+.media-meta {
+  @apply text-sm text-gray-600 m-0;
+}
+
+.actions {
+  @apply gap-2 flex-wrap;
+}
+
+.empty-state {
+  @apply text-center text-gray-500 py-8 italic;
+}
+
+/* Star Rating */
+.star-row {
+  @apply inline-flex gap-1;
+}
+
+.star {
+  @apply text-2xl text-gray-300 hover:text-yellow-400 cursor-pointer transition bg-transparent border-none p-0;
+}
+
+.star.active {
+  @apply text-yellow-500;
+}
+
+.rating-block {
+  @apply justify-between gap-3 mt-4;
+}
+
+.rating-block span {
+  @apply text-sm text-gray-600 ml-2;
+}
+
+/* Error & Status Messages */
+.error-message {
+  @apply text-red-600 font-semibold text-center mb-4 p-3 bg-red-100 rounded-lg;
+}
+
+.demo-note {
+  @apply text-sm text-yellow-700 font-medium mb-4;
+}
+
+/* File Upload Components */
+.file-upload {
+  @apply relative inline-block;
+}
+
+.file-upload-label {
+  @apply px-4 py-2 rounded-xl font-bold text-gray-900 bg-gradient-to-r from-yellow-600 to-yellow-300 border-none shadow-md hover:shadow-lg transition cursor-pointer inline-block;
+}
+
+.file-upload-input {
+  @apply hidden;
+}
+
+/* Export Buttons */
+.export-buttons {
+  @apply flex gap-3 mt-4;
+}
+
+.btn-export {
+  @apply px-4 py-2 rounded-xl font-semibold text-gray-900 bg-gradient-to-r from-blue-500 to-blue-300 border-none shadow-md hover:shadow-lg transition;
+}
+
+/* Image Upload */
+.image-upload {
+  @apply flex flex-col items-center gap-3 p-4 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50;
+}
+
+.image-preview {
+  @apply max-w-xs max-h-48 rounded-lg object-cover shadow-md;
+}
+
+.image-placeholder {
+  @apply w-32 h-32 flex items-center justify-center bg-gray-200 rounded-lg text-gray-500 font-semibold;
+}
+
+.image-upload-label {
+  @apply px-4 py-2 rounded-xl font-bold text-gray-900 bg-gradient-to-r from-green-500 to-green-300 border-none shadow-md hover:shadow-lg transition cursor-pointer;
+}
+
+.image-upload-input {
+  @apply hidden;
+}
+
+/* Import Section */
+.import-section {
+  @apply bg-blue-50 border border-blue-300 rounded-xl p-4 mt-4 mb-4;
+}
+
+.import-title {
+  @apply text-lg font-bold text-blue-900 mb-3;
+}
+
+.import-hint {
+  @apply text-xs text-blue-700 mt-2 italic;
+}
+
+@media (max-width: 768px) {
+  .topbar,
+  .media-main,
+  .rating-block,
+  .toolbar {
+    @apply flex-col items-start;
+  }
+
+  .entry-form {
+    @apply grid-cols-1;
+  }
+
+  .filter-row {
+    @apply w-full;
+  }
+
+  .filter-row input,
+  .filter-row select {
+    @apply w-full;
+  }
+}
+
+
+.unwatched-rating-note {
+  @apply text-sm text-gray-500 italic ml-2;
+}
